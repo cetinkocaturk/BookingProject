@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "AdmineMailGonderme";
+    Layout = "~/Views/_HotelManagamentLayout.cshtml";
+}
+@Html.Raw(TempData["msg"])
+<div class="container">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        @using (Html.BeginForm("AdmineMailGonderme", "OtelPaneli", FormMethod.Post))
+        {
+            <b>Konu:</b><br /><br />
+            <input type="text" name="txtKonu" placeholder="Konu" class="form-control" />
+            <br />
+            <b>Mesaj:</b><br /><br />
+            <textarea name="txtMesaj" class="form-control" placeholder="Mesaj"></textarea>
+            <br />
+            <input type="submit" value="Gönder" class="btn-success" />
+        }
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+

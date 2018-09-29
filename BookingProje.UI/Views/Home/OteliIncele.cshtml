@@ -1,0 +1,216 @@
+﻿@model IEnumerable<BookingProje.UI.Models.OtelInceleme>
+@{
+    ViewBag.Title = "OteliIncele";
+    Layout = "~/Views/_BookingLoginLayout.cshtml";
+    int gunSayisi = (((List<BookingProje.UI.Models.OtelAramaSonuclari>)Session["HotelResult"]).First().cikisTarihi - ((List<BookingProje.UI.Models.OtelAramaSonuclari>)Session["HotelResult"]).First().girisTarihi).Days;
+}
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Otel Detay</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<script type="text/javascript" src="javascript/head.js"></script>*@
+    <link rel="stylesheet" type="text/css" href="~/LayoutHotelList/styles/screen.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="~/LayoutHotelList/styles/print.css" media="print">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-------------------------------------------------------------------/
+    Color switcher for demo, to be removed from live website.
+    <!------------------------------------------------------------------->
+    @*<script type="text/javascript" src="~/LayoutHotelList/javascript/jscript_styleswitcher.js"></script>*@
+    <link rel="stylesheet" href="/LayoutHotelList/styles/styleswitcher.css" />
+
+    <!-- Skins Color FOR DEMO WEBSITE -->
+    <link rel="alternate stylesheet" href="~/LayoutHotelList/styles-orange/screen.css" title="style-orange" />
+    <link rel="alternate stylesheet" href="~/LayoutHotelList/styles-blue/screen.css" title="style-blue" />
+    <link rel="alternate stylesheet" href="~/LayoutHotelList/styles-pink/screen.css" title="style-pink" />
+    <link rel="alternate stylesheet" href="~/LayoutHotelList/styles-green/screen.css" title="style-green" />
+    <!-- EOF OF DEMO WEBSITE CODE -->
+    <!-------------------------------------------------------------------/
+    EOF Color switcher for demo, to be removed from live website.
+    <!------------------------------------------------------------------->
+
+</head>
+<body>
+    <!-------------------------------------------------------------------/
+    Color switcher for demo, to be removed from live website.
+    <!------------------------------------------------------------------->
+
+    <div class="switcher" style="left: -130px;">
+        <div class="switcher-content">
+            <div class="switcher-box">
+                <a title="style-blue" class="styleswitch blue" rel="style-blue"></a>
+                <a title="style-pink" class="styleswitch pink" rel="style-pink"></a>
+                <a title="style-green" class="styleswitch green" rel="style-green"></a>
+                <a title="style-orange" class="styleswitch orange" rel="style-orange"></a>
+            </div><!-- End switcher-box -->
+            <div class="clear"></div>
+            <!-- cols -->
+            <!--        <ul class="cols">
+                        <li><a href="http://templatation.com/Site-templates/Justcakes/version4/layout1/" class="boxed-layout">Layout 1</a></li>
+                        <li><a href="http://templatation.com/Site-templates/Justcakes/version4/layout2/" class="boxed-layout">Layout 2</a></li>
+                        <li><a href="http://templatation.com/Site-templates/Justcakes/version4/layout3/" class="boxed-layout">Layout 3</a></li>
+                        <li><a href="http://templatation.com/Site-templates/Justcakes/version4/layout4/" class="boxed-layout">Layout 4</a></li>
+                    </ul>
+            -->
+        </div><!-- End content -->
+    </div>
+    <!-------------------------------------------------------------------/
+    Color switcher ends here
+    <!------------------------------------------------------------------->
+    @foreach (var sonuc in Model)
+    {
+        <div id="root">
+            <nav id="breadcrumbs">
+                <ul>
+                    <li><a href="./">Otel</a></li>
+                    <li><a href="./">Otel Ara</a></li>
+                    <li><a href="./">@sonuc.OtelIlcesi Otelleri</a></li>
+                    <li>@sonuc.OtelAdi</li>
+                </ul>
+            </nav>
+            <section id="content" class="cols-a">
+                <article class="vcard">
+                    <header class="module-a">
+                        <h2 class="fn org">@sonuc.OtelAdi</h2>
+                        @if (sonuc.OtelYildizi == 5)
+                        {<p class="rating-a f"></p>}
+                        @if (sonuc.OtelYildizi == 4)
+                        {<p class="rating-a e"></p>}
+                        @if (sonuc.OtelYildizi == 3)
+                        {<p class="rating-a d"></p>}
+                        @if (sonuc.OtelYildizi == 2)
+                        {<p class="rating-a c"></p>}
+                        @if (sonuc.OtelYildizi == 1)
+                        {<p class="rating-a b"></p>}
+                        <p class="link"><a href="./">Return</a></p>
+                        <p class="addthis_toolbox addthis_default_style addthis_16x16_style"><span>Share:</span> <a class="addthis_button_email"></a> <a class="addthis_button_facebook"></a> <a class="addthis_button_twitter"></a></p>
+                    </header>
+                    <div class="slider-a">
+                        @{
+                            var base64 = Convert.ToBase64String(sonuc.OdaResmi);
+                            var imageSrc = string.Format("data:image/gif;base64,{0}", base64);
+                        }
+                        <figure><img src='@imageSrc' alt="Placeholder" width="693" height="283"></figure>
+                    </div>
+                    <div class="tabs-a">
+                        <ul>
+                            <li>Otel Bilgileri</li>
+                        </ul>
+                        <div>
+                            <div>
+                                <p>@sonuc.OtelAciklamasi</p>
+                                <p class="adr"><span class="street-address">@sonuc.OtelAdresi</span>, <span class="locality">@sonuc.OtelIlcesi</span>, <span class="country-name">@sonuc.OtelSehri</span></p>
+                                <p class="tel">Telefon: @sonuc.OtelTelefonu</p>
+                                <br />
+                                <p class="big">Kullanıcı Ortalaması: @sonuc.OtelRating Yıldız / 5 Yıldız</p>
+                            </div>
+                            <br />
+                            <div class="double-a">
+                                <div>
+                                    <h3>Otel Yorumları</h3>
+                                    <div class="scroller-a news-c">
+                                        @foreach (var yorum in sonuc.OtelYorumlari)
+                                        {
+                                            <article>
+                                                <h4>@yorum.Tbl_Kullanicilar.KullaniciAdi @yorum.Tbl_Kullanicilar.KullaniciSoyadi<span>@yorum.CreatedDate</span></h4>
+                                                <p>@yorum.Yorum</p>
+                                            </article>
+                                        }
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Otel Hakkındaki Görüşlerin</h3>
+                                    @using (Html.BeginForm("OteliIncele", "Home", FormMethod.Post))
+                                    {
+                                        <b>Yorum:</b><br />
+                                        <textarea name="txtYorum" style="height:80px" class="form-control"></textarea>
+                                        <b>Puan:</b><br />
+                                        @Html.DropDownList("ddlPuanlama", new SelectList(new[] { new { ID = "1", Name = "1" }, new { ID = "2", Name = "2" }, new { ID = "3", Name = "3" }, new { ID = "4", Name = "4" }, new { ID = "5", Name = "5" } }, "ID", "Name", "..::Puan Seçiniz::.."), new { @class = "form-control select-filter" })<br />
+                                        <input type="submit" value="Gönder" class="btn btn-primary btn-sm btn-naira btn-naira-up form-control"/>
+                                    }
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <aside>
+                    <p class="scheme-a">@sonuc.OtelIlcesi / @sonuc.OtelSehri<iframe width="242" height="156" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=36+-+Nguyen+Chi+Thanh+-+Dong+Da,+Hanoi,+Vietnam&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=55.323926,114.169922&amp;ie=UTF8&amp;hq=&amp;hnear=36+Nguy%E1%BB%85n+Ch%C3%AD+Thanh,+Gi%E1%BA%A3ng+V%C3%B5,+Ba+Dinh+District,+Hanoi,+Wietnam&amp;t=m&amp;ll=21.025707,105.811729&amp;spn=0.012498,0.020857&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe></p>
+                    <p class="scheme-b"><span>@string.Format("{0:C0}", sonuc.IndirimliOdaFiyati)<span>'dan başlayan fiyatlarla</span></span></p>                  
+                    @using (Html.BeginForm("RezervasyonYap", "Home", FormMethod.Post, new { @class = "form-a" }))
+                    {
+                    <fieldset>
+                        <p> Toplam @sonuc.OtelinTureGoreOdaSayisi adet boş oda var.</p>
+                        <p>Oda Özellikleri: @sonuc.OdaSinifiOzellikleri</p>
+                        <p>Kişi Sayısı = @sonuc.KisiSayisi</p>
+                        <br />
+                        <p class="scheme-c">Toplam Tutar:<br /><span style="margin-right:25%; margin-top:10%"><label id="lblTutar">@string.Format("{0:C0}", (sonuc.IndirimliOdaFiyati * gunSayisi))</label></span></p><br /><br />
+                        @if (ViewBag.OdaSayisi >= 1)
+                        {
+                            <p class="submit" style="margin-right:12%"><button type="submit">Tamamla</button></p>
+                        }
+                        else
+                        {
+                            <p>Boş oda yok. Lütfen başka oda sınıfı arayınız.</p>
+                        }
+                    </fieldset>
+                    }
+                </aside>
+            </section>
+        </div>
+    }
+</body>
+</html>
+<script src="/LayoutFeatures/js/jquery-1.11.2.min.js"></script>
+@*<script type="text/javascript">
+        $(document).ready(function () {
+            $("#ddlOdaTurleri").change(function () {
+                //alert("Değişti");
+                $("#ddlOdaNumaralari").empty();
+                $.ajax({
+                    url: '@Url.Action("odaNumaraGetir", "Home")',
+                    data: { otelID: @Model.FirstOrDefault().OtelID, odaTuruID: $("#ddlOdaTurleri").val() },
+                    type: 'Post',
+                    dataType: 'json',
+                    success: function (counties) {
+                        //alert("Test");
+                        $.each(counties, function (i, counties) {
+                            //alert("Test");
+                            $("#ddlOdaNumaralari").append('<option value="' + counties.Value + '">' + counties.Text + '</option>');
+                        });
+                    }
+                });
+
+            });
+        });
+    </script>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ddlOdaTurleri").change(function () {
+            //alert("Değişti");
+            $.ajax({
+                url: '@Url.Action("tutarHesapla", "Home")',
+                data: { otelID: @Model.FirstOrDefault().OtelID, odaturuid: $("#ddlOdaTurleri").val() },
+                type: 'Post',
+                dataType: 'json',
+                success: function (counties) {
+                    //alert("Test");
+                    $.each(counties, function (i, counties) {
+                        //alert("Test");
+                        $("#lblTutar").append(counties.text);
+                    });
+                }
+            });
+
+        });
+    });
+</script>
+

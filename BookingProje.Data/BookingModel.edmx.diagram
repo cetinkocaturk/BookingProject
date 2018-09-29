@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="be3cf04ab34745caa863c618d41418a1" Name="Diagram1">
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_Gorevliler" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_Ilceler" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_Kullanicilar" Width="1.5" PointX="8.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_Odalar" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_OdaTurleri" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_OtelBasvuru" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_Oteller" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_Puanlamalar" Width="1.5" PointX="13.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_Rezervasyonlar" Width="1.5" PointX="15.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_Sehirler" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingProjectModel.Tbl_Yorumlar" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Oteller_Tbl_Gorevliler" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Ilceler_Tbl_Sehirler" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_OtelBasvuru_Tbl_Ilceler" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Oteller_Tbl_Ilceler" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Puanlamalar_Tbl_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Rezervasyonlar_Tbl_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Yorumlar_Tbl_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Odalar_Tbl_OdaTurleri" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Odalar_Tbl_Oteller" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Rezervasyonlar_Tbl_Odalar" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Puanlamalar_Tbl_Oteller" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingProjectModel.FK_Tbl_Yorumlar_Tbl_Oteller" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

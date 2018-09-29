@@ -1,0 +1,35 @@
+﻿@model List<BookingProje.UI.Models.YorumVePuan>
+@{
+    ViewBag.Title = "OtelYorumlari";
+    Layout = "~/Views/_HotelManagamentLayout.cshtml";
+}
+
+<div class="container">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <table class="table-bordered table-responsive table-hover" style="text-align:center; display:table-cell">
+            <thead>
+                <tr>
+                    <th class="text-center" style="width: 250px">Ad</th>
+                    <th class="text-center" style="width: 250px">Soyad</th>
+                    <th class="text-center" style="width: 250px">E-Mail</th>
+                    <th class="text-center" style="width: 250px">Telefon</th>
+                    <th class="text-center" style="width: 250px">Yorum</th>
+                    <th class="text-center" style="width: 250px">Puan</th>
+                </tr>
+            </thead>
+            @foreach (var sonuc in Model)
+            {
+                <tr>
+                    <td>@sonuc.Ad</td>
+                    <td>@sonuc.Soyad</td>
+                    <td>@sonuc.Email</td>
+                    <td>@sonuc.Telefon</td>
+                    <td>@sonuc.Yorum</td>
+                    <td>@sonuc.Puan / 5</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-lg-2"></div>
+</div>

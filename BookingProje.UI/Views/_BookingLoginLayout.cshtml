@@ -1,0 +1,136 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" class="wide smoothscroll wow-animation">
+<head>
+    <!-- Site Title-->
+    <title>Home</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="~/LayoutFeatures2/images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,900">
+    <link rel="stylesheet" href="~/LayoutFeatures2/css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+    <!-- Page-->
+    <div class="page text-center">
+        <!-- Page Header-->
+        <div>
+            <header class="page-header">
+                <!-- RD Navbar-->
+                <div class="rd-navbar-wrap bg-gray-dark">
+                    <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-sm-stick-up-offset="1px" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" class="rd-navbar">
+                        <div class="rd-navbar-inner">
+                            <!-- RD Navbar Panel-->
+                            <div class="rd-navbar-panel">
+                                <!-- RD Navbar Toggle-->
+                                <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
+                                <!-- RD Navbar Brand-->
+                                <div class="rd-navbar-brand"><a href="~/Home/Index" class="reveal-inline-block brand-name"><img src="~/LayoutFeatures2/images/logo-white.png" width="166" height="55" alt="" class="img-responsive center-block"></a></div>
+                            </div>
+                            <div class="rd-navbar-nav-wrap">
+                                <!-- RD Navbar Nav-->
+                                @Html.Action("KullaniciPaneli", "Login")
+                                <!--RD Navbar Search-->
+                                <div class="rd-navbar-search">
+                                    <a data-rd-navbar-toggle=".rd-navbar-search" href="#" class="rd-navbar-search-toggle"><span class="fa-search"></span></a>
+                                    <form data-search-live="rd-search-results-live" action="search-results.html" method="GET" class="rd-search">
+                                        <div class="form-group">
+                                            <label for="rd-navbar-search-form-input" class="form-label">Search</label>
+                                            <input id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off" class="rd-navbar-search-form-input form-control form-control-gray-lightest">
+                                        </div>
+                                        <button class="btn fa-search"></button>
+                                        <div id="rd-search-results-live" class="rd-search-results-live"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+        </div>
+        @RenderBody()
+        <!-- Page Footer-->
+        <footer class="page-footer">
+            <div class="shell shell-wide page-footer-min small">
+                <div class="range range-xs-middle">
+                    <div class="cell-sm-6 text-sm-left">
+                        <ul class="list-inline">
+                            <li><a href="#" class="icon fa-facebook"></a></li>
+                            <li><a href="#" class="icon fa-twitter"></a></li>
+                            <li><a href="#" class="icon fa-pinterest-p"></a></li>
+                            <li><a href="#" class="icon fa-vimeo"></a></li>
+                            <li><a href="#" class="icon fa-google-plus"></a></li>
+                            <li><a href="#" class="icon fa-rss"></a></li>
+                        </ul>
+                    </div>
+                    <div class="cell-sm-6 text-sm-right offset-top-20 offset-sm-top-0">
+                        <p>
+                            &#169; <span id="copyright-year"></span> All rights reserved. <a href="privacy.html">Privacy Policy</a>
+                            <!-- {%FOOTER_LINK}-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <div id="form-output-global" class="snackbars"></div>
+    <!-- PhotoSwipe Gallery-->
+    <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button title="Close (Esc)" class="pswp__button pswp__button--close"></button>
+                    <button title="Share" class="pswp__button pswp__button--share"></button>
+                    <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
+                    <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button>
+                <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__cent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Java script-->
+    <script src="~/LayoutFeatures2/js/core.min.js"></script>
+    <script src="~/LayoutFeatures2/js/script.js"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7078796-5']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();</script>
+</body><!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-P9FT69');</script><!-- End Google Tag Manager -->
+</html>

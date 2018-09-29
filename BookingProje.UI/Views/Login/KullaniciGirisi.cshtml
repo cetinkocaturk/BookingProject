@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "KullaniciGirisi";
+    Layout = "~/Views/_BookingLoginLayout.cshtml";
+}
+@Html.Raw(TempData["msg"])
+<br /><br />
+<div class="container">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        @using (Html.BeginForm("KullaniciGirisi", "Login", FormMethod.Post))
+        {
+            <b>E-Mail:</b><br /><br />
+            <input type="text" name="txtEmail" placeholder="E-Mail" class="form-control" />
+            <br />
+            <b>Şifre:</b><br /><br />
+            <input type="password" name="txtSifre" placeholder="Şifre" class="form-control" />
+            <br />
+            <input type="submit" value="Giriş Yap" class="btn btn-primary btn-sm btn-naira btn-naira-up" />
+        }
+        <br /><br />
+        <b>Henüz üyeliğin yoksa &nbsp; &nbsp;</b>@Html.ActionLink("Kayıt Ol", "KullaniciKayit", "Login", null, new { @class = "btn btn-circle", @style = "color:#c62a82" })
+    </div>
+    <div class="col-lg-2"></div>
+</div><br /><br />
+

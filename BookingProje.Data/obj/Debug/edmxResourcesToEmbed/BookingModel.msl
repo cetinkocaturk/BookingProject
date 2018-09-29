@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookingProjectModelStoreContainer" CdmEntityContainer="BookingProjectEntities">
+    <EntitySetMapping Name="Tbl_Gorevliler">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_Gorevliler">
+        <MappingFragment StoreEntitySet="Tbl_Gorevliler">
+          <ScalarProperty Name="GorevliID" ColumnName="GorevliID" />
+          <ScalarProperty Name="GorevliAdi" ColumnName="GorevliAdi" />
+          <ScalarProperty Name="GorevliSoyadi" ColumnName="GorevliSoyadi" />
+          <ScalarProperty Name="GorevliEmail" ColumnName="GorevliEmail" />
+          <ScalarProperty Name="GorevliSifre" ColumnName="GorevliSifre" />
+          <ScalarProperty Name="GorevliTelefon" ColumnName="GorevliTelefon" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Ilceler">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_Ilceler">
+        <MappingFragment StoreEntitySet="Tbl_Ilceler">
+          <ScalarProperty Name="IlceID" ColumnName="IlceID" />
+          <ScalarProperty Name="IlceAdi" ColumnName="IlceAdi" />
+          <ScalarProperty Name="SehirID" ColumnName="SehirID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Kullanicilar">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_Kullanicilar">
+        <MappingFragment StoreEntitySet="Tbl_Kullanicilar">
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="KullaniciSoyadi" ColumnName="KullaniciSoyadi" />
+          <ScalarProperty Name="KullaniciEmail" ColumnName="KullaniciEmail" />
+          <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+          <ScalarProperty Name="KullaniciTelefon" ColumnName="KullaniciTelefon" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Odalar">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_Odalar">
+        <MappingFragment StoreEntitySet="Tbl_Odalar">
+          <ScalarProperty Name="OdaID" ColumnName="OdaID" />
+          <ScalarProperty Name="OtelID" ColumnName="OtelID" />
+          <ScalarProperty Name="OdaTuruID" ColumnName="OdaTuruID" />
+          <ScalarProperty Name="OdaNumarasi" ColumnName="OdaNumarasi" />
+          <ScalarProperty Name="NormalOdaFiyati" ColumnName="NormalOdaFiyati" />
+          <ScalarProperty Name="IndirimliOdaFiyati" ColumnName="IndirimliOdaFiyati" />
+          <ScalarProperty Name="OdaResmi" ColumnName="OdaResmi" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_OdaTurleri">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_OdaTurleri">
+        <MappingFragment StoreEntitySet="Tbl_OdaTurleri">
+          <ScalarProperty Name="OdaTuruID" ColumnName="OdaTuruID" />
+          <ScalarProperty Name="OdaTuru" ColumnName="OdaTuru" />
+          <ScalarProperty Name="OdaAciklamasi" ColumnName="OdaAciklamasi" />
+          <ScalarProperty Name="OdaKapasitesi" ColumnName="OdaKapasitesi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_OtelBasvuru">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_OtelBasvuru">
+        <MappingFragment StoreEntitySet="Tbl_OtelBasvuru">
+          <ScalarProperty Name="OtelBasvuruID" ColumnName="OtelBasvuruID" />
+          <ScalarProperty Name="OtelAdi" ColumnName="OtelAdi" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="IlceID" ColumnName="IlceID" />
+          <ScalarProperty Name="OtelYildizi" ColumnName="OtelYildizi" />
+          <ScalarProperty Name="OdaSayisi" ColumnName="OdaSayisi" />
+          <ScalarProperty Name="GorevliAdi" ColumnName="GorevliAdi" />
+          <ScalarProperty Name="GorevliSoyadi" ColumnName="GorevliSoyadi" />
+          <ScalarProperty Name="GorevliEmail" ColumnName="GorevliEmail" />
+          <ScalarProperty Name="GorevliSifre" ColumnName="GorevliSifre" />
+          <ScalarProperty Name="GorevliTelefon" ColumnName="GorevliTelefon" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Oteller">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_Oteller">
+        <MappingFragment StoreEntitySet="Tbl_Oteller">
+          <ScalarProperty Name="OtelID" ColumnName="OtelID" />
+          <ScalarProperty Name="GorevliID" ColumnName="GorevliID" />
+          <ScalarProperty Name="İlceID" ColumnName="İlceID" />
+          <ScalarProperty Name="OtelKodu" ColumnName="OtelKodu" />
+          <ScalarProperty Name="OtelAdi" ColumnName="OtelAdi" />
+          <ScalarProperty Name="OtelAciklamasi" ColumnName="OtelAciklamasi" />
+          <ScalarProperty Name="OtelTelefonu" ColumnName="OtelTelefonu" />
+          <ScalarProperty Name="OtelYildizi" ColumnName="OtelYildizi" />
+          <ScalarProperty Name="UcretsizWifi" ColumnName="UcretsizWifi" />
+          <ScalarProperty Name="OtelResmi" ColumnName="OtelResmi" />
+          <ScalarProperty Name="AcikAdres" ColumnName="AcikAdres" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Puanlamalar">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_Puanlamalar">
+        <MappingFragment StoreEntitySet="Tbl_Puanlamalar">
+          <ScalarProperty Name="PuanlamaID" ColumnName="PuanlamaID" />
+          <ScalarProperty Name="Puan" ColumnName="Puan" />
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+          <ScalarProperty Name="OtelID" ColumnName="OtelID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Rezervasyonlar">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_Rezervasyonlar">
+        <MappingFragment StoreEntitySet="Tbl_Rezervasyonlar">
+          <ScalarProperty Name="RezerveOdaID" ColumnName="RezerveOdaID" />
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+          <ScalarProperty Name="OdaID" ColumnName="OdaID" />
+          <ScalarProperty Name="KisiSayisi" ColumnName="KisiSayisi" />
+          <ScalarProperty Name="OdenenTutar" ColumnName="OdenenTutar" />
+          <ScalarProperty Name="GirisTarihi" ColumnName="GirisTarihi" />
+          <ScalarProperty Name="CikisTarihi" ColumnName="CikisTarihi" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Sehirler">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_Sehirler">
+        <MappingFragment StoreEntitySet="Tbl_Sehirler">
+          <ScalarProperty Name="SehirID" ColumnName="SehirID" />
+          <ScalarProperty Name="SehirAdi" ColumnName="SehirAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Yorumlar">
+      <EntityTypeMapping TypeName="BookingProjectModel.Tbl_Yorumlar">
+        <MappingFragment StoreEntitySet="Tbl_Yorumlar">
+          <ScalarProperty Name="YorumID" ColumnName="YorumID" />
+          <ScalarProperty Name="Yorum" ColumnName="Yorum" />
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+          <ScalarProperty Name="OtelID" ColumnName="OtelID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

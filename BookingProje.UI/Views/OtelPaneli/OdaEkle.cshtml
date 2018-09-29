@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "OdaEkle";
+    Layout = "~/Views/_HotelManagamentLayout.cshtml";
+}
+@Html.Raw(TempData["msg"])
+<div class="container">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        @using (Html.BeginForm("OdaEkle", "OtelPaneli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <b>Oda Türü:</b><br /><br />
+            @Html.DropDownList("ddlOdaTurleri", ViewBag.OdaTurleri as SelectList, "..::Oda Türü Seçiniz::..", new { @class = "form-control" })
+            <br />
+            <b>Normal Oda Fiyatı:</b><br /><br />
+            <input type="number" name="numbNormalFiyat" maxlength="7" placeholder="Normal Oda Fiyatı" class="form-control" />
+            <br />
+            <b>İndirimli Oda Fiyatı:</b><br /><br />
+            <input type="number" name="numbIndirimliFiyat" placeholder="İndirimli Oda Fiyatı" class="form-control" />
+            <br />
+            <b>Oda Resmi:</b><br /><br />
+            <input type="file" name="fileOdaResmi" id="fileOdaResmi" class="form-control" />
+            <br />
+            <b>Oda Numarası:</b><br /><br />
+            <input type="number" name="numbOdaNumarasi" class="form-control" />
+            <br />
+            <input type="submit" value="Oda Ekle" class="btn btn-primary btn-sm btn-naira btn-naira-up" />
+        }
+    </div>
+    <div class="col-lg-3"></div>
+</div>

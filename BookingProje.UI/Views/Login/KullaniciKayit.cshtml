@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "KullaniciKayit";
+    Layout = "~/Views/_BookingLoginLayout.cshtml";
+}
+@Html.Raw(TempData["msg"])
+<br /><br />
+<div class="container">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        @using (Html.BeginForm("KullaniciKayit", "Login", FormMethod.Post))
+        {
+            <b>Ad:</b><br /><br />
+            <input type="text" name="txtKullaniciAd" placeholder="Adınız" class="form-control" />
+            <br />
+            <b>Soyad:</b><br /><br />
+            <input type="text" name="txtKullaniciSoyad" placeholder="Soyadınız" class="form-control" />
+            <br />
+            <b>E-Mail:</b><br /><br />
+            <input type="email" name="txtKullaniciEmail" placeholder="E-Mailiniz" class="form-control" />
+            <br />
+            <b>Şifre:</b><br /><br />
+            <input type="password" name="txtKullaniciSifre" placeholder="Şifreniz" class="form-control" />
+            <br />
+            <b>Telefon Numaranız:</b><br /><br />
+            <input type="text" name="txtKullaniciTelefon" placeholder="Telefon Numaranız" class="form-control" />
+            <br />
+            <input name="btnKayit" type="submit" value="Kayıt Ol" class="btn btn-primary btn-sm btn-naira btn-naira-up" />
+        }
+    </div>
+    <div class="col-lg-2"></div>
+</div><br /><br />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
+<script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js" type="text/javascript"></script>

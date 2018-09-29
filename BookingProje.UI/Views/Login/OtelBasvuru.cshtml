@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "OtelBasvuru";
+    Layout = "~/Views/_BookingLoginLayout.cshtml";
+}
+
+@Html.Raw(TempData["msg"])
+<br /><br />
+<div class="container">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        @using (Html.BeginForm("OtelBasvuru", "Login", FormMethod.Post))
+        {
+            <b>Otel Adı:</b><br /><br />
+            <input type="text" name="txtOtelAdi" placeholder="Otel Adı" class="form-control" />
+            <br />
+            <b>Adres:</b><br /><br />
+            <textarea type="text" name="txtAdres" placeholder="Adres" class="form-control" cols="10" rows="4"></textarea>
+            <br />
+            <b>İl:</b><br /><br />
+            @Html.DropDownList("ddlSehirler", ViewBag.Sehirler as SelectList, "..::İl Seçiniz::..", new { @class = "form-control select-filter" })
+            <br />
+            <b>İlçe:</b><br /><br />
+            @Html.DropDownList("ddlIlceler", new SelectList(string.Empty, "IlceID", "IlceAdi"), "..::İlçe Seçiniz::..", new { @class = "form-control select-filter" })
+            <br />
+            <b>Otel Yıldızı:</b><br /><br />
+            @Html.DropDownList("ddlYildizlar", new SelectList(new[] { new { ID = "1", Name = "1" }, new { ID = "2", Name = "2" }, new { ID = "3", Name = "3" }, new { ID = "4", Name = "4" }, new { ID = "5", Name = "5" } }, "ID", "Name", "..::Otel Sınıfı Seçiniz::.."), new { @class = "form-control select-filter" })
+            <br />
+            <b>Oda Sayısı:</b><br /><br />
+            <input type="number" name="numbOdaSayisi" min="1" value="1" class="form-control stepper-input">
+            <br />
+            <b>Görevli Adı:</b><br /><br />
+            <input type="text" name="txtGorevliAdi" placeholder="Görevli Adı" class="form-control" />
+            <br />
+            <b>Görevli Soyadı:</b><br /><br />
+            <input type="text" name="txtGorevliSoyadi" placeholder="Görevli Soyadı" class="form-control" />
+            <br />
+            <b>Görevli Email:</b><br /><br />
+            <input type="text" name="txtGorevliEmail" placeholder="Email" class="form-control" />
+            <br />
+            <b>Görevli Şifre:</b><br /><br />
+            <input type="password" name="txtGorevliSifre" placeholder="Şifre" class="form-control" />
+            <br />
+            <b>Görevli Telefon:</b><br /><br />
+            <input type="text" name="txtGorevliTelefon" placeholder="Telefon" class="form-control" />
+            <br />
+            <input name="btnBasvur" type="submit" value="Başvur" class="btn btn-primary btn-sm btn-naira btn-naira-up" />
+        }
+    </div>
+    <div class="col-lg-2"></div>
+</div><br /><br />
+<script src="~/LayoutFeatures/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ddlSehirler").change(function () {
+            //alert("Değişti");
+            $("#ddlIlceler").empty();
+            $.ajax({
+                url:'@Url.Action("IlceGetir", "Home")',
+                data: { id: $("#ddlSehirler").val() },
+                type: 'Post',
+                dataType: 'json',
+                success: function (counties) {
+                    //alert("Test");
+                    $.each(counties, function (i, counties) {
+                        //alert("Test");
+                        $("#ddlIlceler").append('<option value="' + counties.Value + '">' + counties.Text + '</option>');
+                    });
+                }
+            });
+
+        });
+    });
+</script>

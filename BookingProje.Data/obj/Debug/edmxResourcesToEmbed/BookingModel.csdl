@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookingProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_Gorevliler">
+    <Key>
+      <PropertyRef Name="GorevliID" />
+    </Key>
+    <Property Name="GorevliID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GorevliAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GorevliSoyadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GorevliEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GorevliSifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GorevliTelefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Oteller" Relationship="Self.FK_Tbl_Oteller_Tbl_Gorevliler" FromRole="Tbl_Gorevliler" ToRole="Tbl_Oteller" />
+  </EntityType>
+  <EntityType Name="Tbl_Ilceler">
+    <Key>
+      <PropertyRef Name="IlceID" />
+    </Key>
+    <Property Name="IlceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IlceAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SehirID" Type="Int32" />
+    <NavigationProperty Name="Tbl_Sehirler" Relationship="Self.FK_Tbl_Ilceler_Tbl_Sehirler" FromRole="Tbl_Ilceler" ToRole="Tbl_Sehirler" />
+    <NavigationProperty Name="Tbl_OtelBasvuru" Relationship="Self.FK_Tbl_OtelBasvuru_Tbl_Ilceler" FromRole="Tbl_Ilceler" ToRole="Tbl_OtelBasvuru" />
+    <NavigationProperty Name="Tbl_Oteller" Relationship="Self.FK_Tbl_Oteller_Tbl_Ilceler" FromRole="Tbl_Ilceler" ToRole="Tbl_Oteller" />
+  </EntityType>
+  <EntityType Name="Tbl_Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciSoyadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciSifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciTelefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Puanlamalar" Relationship="Self.FK_Tbl_Puanlamalar_Tbl_Kullanicilar" FromRole="Tbl_Kullanicilar" ToRole="Tbl_Puanlamalar" />
+    <NavigationProperty Name="Tbl_Rezervasyonlar" Relationship="Self.FK_Tbl_Rezervasyonlar_Tbl_Kullanicilar" FromRole="Tbl_Kullanicilar" ToRole="Tbl_Rezervasyonlar" />
+    <NavigationProperty Name="Tbl_Yorumlar" Relationship="Self.FK_Tbl_Yorumlar_Tbl_Kullanicilar" FromRole="Tbl_Kullanicilar" ToRole="Tbl_Yorumlar" />
+  </EntityType>
+  <EntityType Name="Tbl_Odalar">
+    <Key>
+      <PropertyRef Name="OdaID" />
+    </Key>
+    <Property Name="OdaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OtelID" Type="Int32" />
+    <Property Name="OdaTuruID" Type="Int32" />
+    <Property Name="OdaNumarasi" Type="Int32" />
+    <Property Name="NormalOdaFiyati" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IndirimliOdaFiyati" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="OdaResmi" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_OdaTurleri" Relationship="Self.FK_Tbl_Odalar_Tbl_OdaTurleri" FromRole="Tbl_Odalar" ToRole="Tbl_OdaTurleri" />
+    <NavigationProperty Name="Tbl_Oteller" Relationship="Self.FK_Tbl_Odalar_Tbl_Oteller" FromRole="Tbl_Odalar" ToRole="Tbl_Oteller" />
+    <NavigationProperty Name="Tbl_Rezervasyonlar" Relationship="Self.FK_Tbl_Rezervasyonlar_Tbl_Odalar" FromRole="Tbl_Odalar" ToRole="Tbl_Rezervasyonlar" />
+  </EntityType>
+  <EntityType Name="Tbl_OdaTurleri">
+    <Key>
+      <PropertyRef Name="OdaTuruID" />
+    </Key>
+    <Property Name="OdaTuruID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OdaTuru" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OdaAciklamasi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OdaKapasitesi" Type="Int32" />
+    <NavigationProperty Name="Tbl_Odalar" Relationship="Self.FK_Tbl_Odalar_Tbl_OdaTurleri" FromRole="Tbl_OdaTurleri" ToRole="Tbl_Odalar" />
+  </EntityType>
+  <EntityType Name="Tbl_OtelBasvuru">
+    <Key>
+      <PropertyRef Name="OtelBasvuruID" />
+    </Key>
+    <Property Name="OtelBasvuruID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OtelAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IlceID" Type="Int32" />
+    <Property Name="OtelYildizi" Type="Int32" />
+    <Property Name="OdaSayisi" Type="Int32" />
+    <Property Name="GorevliAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GorevliSoyadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GorevliEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GorevliSifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GorevliTelefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Ilceler" Relationship="Self.FK_Tbl_OtelBasvuru_Tbl_Ilceler" FromRole="Tbl_OtelBasvuru" ToRole="Tbl_Ilceler" />
+  </EntityType>
+  <EntityType Name="Tbl_Oteller">
+    <Key>
+      <PropertyRef Name="OtelID" />
+    </Key>
+    <Property Name="OtelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GorevliID" Type="Int32" />
+    <Property Name="İlceID" Type="Int32" />
+    <Property Name="OtelKodu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtelAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtelAciklamasi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtelTelefonu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtelYildizi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UcretsizWifi" Type="Boolean" />
+    <Property Name="OtelResmi" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="AcikAdres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Gorevliler" Relationship="Self.FK_Tbl_Oteller_Tbl_Gorevliler" FromRole="Tbl_Oteller" ToRole="Tbl_Gorevliler" />
+    <NavigationProperty Name="Tbl_Ilceler" Relationship="Self.FK_Tbl_Oteller_Tbl_Ilceler" FromRole="Tbl_Oteller" ToRole="Tbl_Ilceler" />
+    <NavigationProperty Name="Tbl_Odalar" Relationship="Self.FK_Tbl_Odalar_Tbl_Oteller" FromRole="Tbl_Oteller" ToRole="Tbl_Odalar" />
+    <NavigationProperty Name="Tbl_Puanlamalar" Relationship="Self.FK_Tbl_Puanlamalar_Tbl_Oteller" FromRole="Tbl_Oteller" ToRole="Tbl_Puanlamalar" />
+    <NavigationProperty Name="Tbl_Yorumlar" Relationship="Self.FK_Tbl_Yorumlar_Tbl_Oteller" FromRole="Tbl_Oteller" ToRole="Tbl_Yorumlar" />
+  </EntityType>
+  <EntityType Name="Tbl_Puanlamalar">
+    <Key>
+      <PropertyRef Name="PuanlamaID" />
+    </Key>
+    <Property Name="PuanlamaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Puan" Type="Int32" />
+    <Property Name="KullaniciID" Type="Int32" />
+    <Property Name="OtelID" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Kullanicilar" Relationship="Self.FK_Tbl_Puanlamalar_Tbl_Kullanicilar" FromRole="Tbl_Puanlamalar" ToRole="Tbl_Kullanicilar" />
+    <NavigationProperty Name="Tbl_Oteller" Relationship="Self.FK_Tbl_Puanlamalar_Tbl_Oteller" FromRole="Tbl_Puanlamalar" ToRole="Tbl_Oteller" />
+  </EntityType>
+  <EntityType Name="Tbl_Rezervasyonlar">
+    <Key>
+      <PropertyRef Name="RezerveOdaID" />
+    </Key>
+    <Property Name="RezerveOdaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciID" Type="Int32" />
+    <Property Name="OdaID" Type="Int32" />
+    <Property Name="KisiSayisi" Type="Int32" />
+    <Property Name="OdenenTutar" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GirisTarihi" Type="DateTime" Precision="0" />
+    <Property Name="CikisTarihi" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Kullanicilar" Relationship="Self.FK_Tbl_Rezervasyonlar_Tbl_Kullanicilar" FromRole="Tbl_Rezervasyonlar" ToRole="Tbl_Kullanicilar" />
+    <NavigationProperty Name="Tbl_Odalar" Relationship="Self.FK_Tbl_Rezervasyonlar_Tbl_Odalar" FromRole="Tbl_Rezervasyonlar" ToRole="Tbl_Odalar" />
+  </EntityType>
+  <EntityType Name="Tbl_Sehirler">
+    <Key>
+      <PropertyRef Name="SehirID" />
+    </Key>
+    <Property Name="SehirID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SehirAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Ilceler" Relationship="Self.FK_Tbl_Ilceler_Tbl_Sehirler" FromRole="Tbl_Sehirler" ToRole="Tbl_Ilceler" />
+  </EntityType>
+  <EntityType Name="Tbl_Yorumlar">
+    <Key>
+      <PropertyRef Name="YorumID" />
+    </Key>
+    <Property Name="YorumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Yorum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciID" Type="Int32" />
+    <Property Name="OtelID" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Kullanicilar" Relationship="Self.FK_Tbl_Yorumlar_Tbl_Kullanicilar" FromRole="Tbl_Yorumlar" ToRole="Tbl_Kullanicilar" />
+    <NavigationProperty Name="Tbl_Oteller" Relationship="Self.FK_Tbl_Yorumlar_Tbl_Oteller" FromRole="Tbl_Yorumlar" ToRole="Tbl_Oteller" />
+  </EntityType>
+  <Association Name="FK_Tbl_Oteller_Tbl_Gorevliler">
+    <End Role="Tbl_Gorevliler" Type="Self.Tbl_Gorevliler" Multiplicity="0..1" />
+    <End Role="Tbl_Oteller" Type="Self.Tbl_Oteller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Gorevliler">
+        <PropertyRef Name="GorevliID" />
+      </Principal>
+      <Dependent Role="Tbl_Oteller">
+        <PropertyRef Name="GorevliID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Ilceler_Tbl_Sehirler">
+    <End Role="Tbl_Sehirler" Type="Self.Tbl_Sehirler" Multiplicity="0..1" />
+    <End Role="Tbl_Ilceler" Type="Self.Tbl_Ilceler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Sehirler">
+        <PropertyRef Name="SehirID" />
+      </Principal>
+      <Dependent Role="Tbl_Ilceler">
+        <PropertyRef Name="SehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_OtelBasvuru_Tbl_Ilceler">
+    <End Role="Tbl_Ilceler" Type="Self.Tbl_Ilceler" Multiplicity="0..1" />
+    <End Role="Tbl_OtelBasvuru" Type="Self.Tbl_OtelBasvuru" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Ilceler">
+        <PropertyRef Name="IlceID" />
+      </Principal>
+      <Dependent Role="Tbl_OtelBasvuru">
+        <PropertyRef Name="IlceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Oteller_Tbl_Ilceler">
+    <End Role="Tbl_Ilceler" Type="Self.Tbl_Ilceler" Multiplicity="0..1" />
+    <End Role="Tbl_Oteller" Type="Self.Tbl_Oteller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Ilceler">
+        <PropertyRef Name="IlceID" />
+      </Principal>
+      <Dependent Role="Tbl_Oteller">
+        <PropertyRef Name="İlceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Puanlamalar_Tbl_Kullanicilar">
+    <End Role="Tbl_Kullanicilar" Type="Self.Tbl_Kullanicilar" Multiplicity="0..1" />
+    <End Role="Tbl_Puanlamalar" Type="Self.Tbl_Puanlamalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Kullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Tbl_Puanlamalar">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Rezervasyonlar_Tbl_Kullanicilar">
+    <End Role="Tbl_Kullanicilar" Type="Self.Tbl_Kullanicilar" Multiplicity="0..1" />
+    <End Role="Tbl_Rezervasyonlar" Type="Self.Tbl_Rezervasyonlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Kullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Tbl_Rezervasyonlar">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Yorumlar_Tbl_Kullanicilar">
+    <End Role="Tbl_Kullanicilar" Type="Self.Tbl_Kullanicilar" Multiplicity="0..1" />
+    <End Role="Tbl_Yorumlar" Type="Self.Tbl_Yorumlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Kullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Tbl_Yorumlar">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Odalar_Tbl_OdaTurleri">
+    <End Role="Tbl_OdaTurleri" Type="Self.Tbl_OdaTurleri" Multiplicity="0..1" />
+    <End Role="Tbl_Odalar" Type="Self.Tbl_Odalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_OdaTurleri">
+        <PropertyRef Name="OdaTuruID" />
+      </Principal>
+      <Dependent Role="Tbl_Odalar">
+        <PropertyRef Name="OdaTuruID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Odalar_Tbl_Oteller">
+    <End Role="Tbl_Oteller" Type="Self.Tbl_Oteller" Multiplicity="0..1" />
+    <End Role="Tbl_Odalar" Type="Self.Tbl_Odalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Oteller">
+        <PropertyRef Name="OtelID" />
+      </Principal>
+      <Dependent Role="Tbl_Odalar">
+        <PropertyRef Name="OtelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Rezervasyonlar_Tbl_Odalar">
+    <End Role="Tbl_Odalar" Type="Self.Tbl_Odalar" Multiplicity="0..1" />
+    <End Role="Tbl_Rezervasyonlar" Type="Self.Tbl_Rezervasyonlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Odalar">
+        <PropertyRef Name="OdaID" />
+      </Principal>
+      <Dependent Role="Tbl_Rezervasyonlar">
+        <PropertyRef Name="OdaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Puanlamalar_Tbl_Oteller">
+    <End Role="Tbl_Oteller" Type="Self.Tbl_Oteller" Multiplicity="0..1" />
+    <End Role="Tbl_Puanlamalar" Type="Self.Tbl_Puanlamalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Oteller">
+        <PropertyRef Name="OtelID" />
+      </Principal>
+      <Dependent Role="Tbl_Puanlamalar">
+        <PropertyRef Name="OtelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Yorumlar_Tbl_Oteller">
+    <End Role="Tbl_Oteller" Type="Self.Tbl_Oteller" Multiplicity="0..1" />
+    <End Role="Tbl_Yorumlar" Type="Self.Tbl_Yorumlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Oteller">
+        <PropertyRef Name="OtelID" />
+      </Principal>
+      <Dependent Role="Tbl_Yorumlar">
+        <PropertyRef Name="OtelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookingProjectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_Gorevliler" EntityType="Self.Tbl_Gorevliler" />
+    <EntitySet Name="Tbl_Ilceler" EntityType="Self.Tbl_Ilceler" />
+    <EntitySet Name="Tbl_Kullanicilar" EntityType="Self.Tbl_Kullanicilar" />
+    <EntitySet Name="Tbl_Odalar" EntityType="Self.Tbl_Odalar" />
+    <EntitySet Name="Tbl_OdaTurleri" EntityType="Self.Tbl_OdaTurleri" />
+    <EntitySet Name="Tbl_OtelBasvuru" EntityType="Self.Tbl_OtelBasvuru" />
+    <EntitySet Name="Tbl_Oteller" EntityType="Self.Tbl_Oteller" />
+    <EntitySet Name="Tbl_Puanlamalar" EntityType="Self.Tbl_Puanlamalar" />
+    <EntitySet Name="Tbl_Rezervasyonlar" EntityType="Self.Tbl_Rezervasyonlar" />
+    <EntitySet Name="Tbl_Sehirler" EntityType="Self.Tbl_Sehirler" />
+    <EntitySet Name="Tbl_Yorumlar" EntityType="Self.Tbl_Yorumlar" />
+    <AssociationSet Name="FK_Tbl_Oteller_Tbl_Gorevliler" Association="Self.FK_Tbl_Oteller_Tbl_Gorevliler">
+      <End Role="Tbl_Gorevliler" EntitySet="Tbl_Gorevliler" />
+      <End Role="Tbl_Oteller" EntitySet="Tbl_Oteller" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Ilceler_Tbl_Sehirler" Association="Self.FK_Tbl_Ilceler_Tbl_Sehirler">
+      <End Role="Tbl_Sehirler" EntitySet="Tbl_Sehirler" />
+      <End Role="Tbl_Ilceler" EntitySet="Tbl_Ilceler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_OtelBasvuru_Tbl_Ilceler" Association="Self.FK_Tbl_OtelBasvuru_Tbl_Ilceler">
+      <End Role="Tbl_Ilceler" EntitySet="Tbl_Ilceler" />
+      <End Role="Tbl_OtelBasvuru" EntitySet="Tbl_OtelBasvuru" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Oteller_Tbl_Ilceler" Association="Self.FK_Tbl_Oteller_Tbl_Ilceler">
+      <End Role="Tbl_Ilceler" EntitySet="Tbl_Ilceler" />
+      <End Role="Tbl_Oteller" EntitySet="Tbl_Oteller" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Puanlamalar_Tbl_Kullanicilar" Association="Self.FK_Tbl_Puanlamalar_Tbl_Kullanicilar">
+      <End Role="Tbl_Kullanicilar" EntitySet="Tbl_Kullanicilar" />
+      <End Role="Tbl_Puanlamalar" EntitySet="Tbl_Puanlamalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Rezervasyonlar_Tbl_Kullanicilar" Association="Self.FK_Tbl_Rezervasyonlar_Tbl_Kullanicilar">
+      <End Role="Tbl_Kullanicilar" EntitySet="Tbl_Kullanicilar" />
+      <End Role="Tbl_Rezervasyonlar" EntitySet="Tbl_Rezervasyonlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Yorumlar_Tbl_Kullanicilar" Association="Self.FK_Tbl_Yorumlar_Tbl_Kullanicilar">
+      <End Role="Tbl_Kullanicilar" EntitySet="Tbl_Kullanicilar" />
+      <End Role="Tbl_Yorumlar" EntitySet="Tbl_Yorumlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Odalar_Tbl_OdaTurleri" Association="Self.FK_Tbl_Odalar_Tbl_OdaTurleri">
+      <End Role="Tbl_OdaTurleri" EntitySet="Tbl_OdaTurleri" />
+      <End Role="Tbl_Odalar" EntitySet="Tbl_Odalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Odalar_Tbl_Oteller" Association="Self.FK_Tbl_Odalar_Tbl_Oteller">
+      <End Role="Tbl_Oteller" EntitySet="Tbl_Oteller" />
+      <End Role="Tbl_Odalar" EntitySet="Tbl_Odalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Rezervasyonlar_Tbl_Odalar" Association="Self.FK_Tbl_Rezervasyonlar_Tbl_Odalar">
+      <End Role="Tbl_Odalar" EntitySet="Tbl_Odalar" />
+      <End Role="Tbl_Rezervasyonlar" EntitySet="Tbl_Rezervasyonlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Puanlamalar_Tbl_Oteller" Association="Self.FK_Tbl_Puanlamalar_Tbl_Oteller">
+      <End Role="Tbl_Oteller" EntitySet="Tbl_Oteller" />
+      <End Role="Tbl_Puanlamalar" EntitySet="Tbl_Puanlamalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Yorumlar_Tbl_Oteller" Association="Self.FK_Tbl_Yorumlar_Tbl_Oteller">
+      <End Role="Tbl_Oteller" EntitySet="Tbl_Oteller" />
+      <End Role="Tbl_Yorumlar" EntitySet="Tbl_Yorumlar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

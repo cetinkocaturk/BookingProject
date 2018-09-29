@@ -1,0 +1,28 @@
+﻿@model BookingProje.Data.Tbl_Odalar
+@{
+    ViewBag.Title = "OdaGuncelle";
+    Layout = "~/Views/_HotelManagamentLayout.cshtml";
+}
+
+<div class="container">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        @using (Html.BeginForm("OdaGuncelle", "OtelPaneli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <b>Oda ID:</b><br /><br />
+            <input type="text" name="txtOdaID" value="@Model.OdaID" class="form-control" />
+            <br />
+            <b>Normal Oda Fiyatı:</b><br /><br />
+            <input type="text" name="txtNormalFiyat" placeholder="Normal Oda Fiyatı" value="@Model.NormalOdaFiyati" class="form-control" />
+            <br />
+            <b>İndirimli Oda Fiyatı:</b><br /><br />
+            <input type="text" name="txtIndirimliFiyat" placeholder="İndirimli Oda Fiyatı" value="@Model.IndirimliOdaFiyati" class="form-control" />
+            <br />
+            <b>Oda Resmi:</b><br /><br />
+            <input type="file" name="fileOdaResmi" id="fileOdaResmi" class="form-control" />
+            <br />
+            <input type="submit" value="Güncelle" class="btn btn-primary btn-sm btn-naira btn-naira-up" />
+        }
+    </div>
+    <div class="col-lg-4"></div>
+</div>

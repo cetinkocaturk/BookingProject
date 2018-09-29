@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BookingProje.Data.Tbl_Odalar>
+@{
+    ViewBag.Title = "OtelOdalari";
+    Layout = "~/Views/_HotelManagamentLayout.cshtml";
+}
+@Html.Raw(TempData["msg"])
+<div class="container">
+    <div class="col-lg-2">@Html.ActionLink("Oda Ekle", "OdaEkle", "OtelPaneli", new { @class = "btn btn-primary" })</div>
+    <div class="col-lg-8">
+        <table class="table-bordered table-responsive table-hover" style="text-align:center; display:table-cell">
+            <thead>
+                <tr>
+                    <th class="text-center" style="width: 250px">Oda Resmi</th>
+                    <th class="text-center" style="width: 250px">Normal Oda Fiyatı</th>
+                    <th class="text-center" style="width: 250px">İndirimli Oda Fiyatı</th>
+                    <th class="text-center" style="width: 250px">Güncelle</th>
+                    <th class="text-center" style="width: 250px">Sil</th>
+                </tr>
+            </thead>
+            @foreach (var oda in Model)
+            {
+                var base64 = Convert.ToBase64String(oda.OdaResmi);
+                var imageSrc = string.Format("data:image/gif;base64,{0}", base64);
+                <tr>
+                    <td><img src='@imageSrc' width="250px" height="120px" alt="Oda Fiyatı: @oda.IndirimliOdaFiyati" /></td>
+                    <td>@string.Format("{0:C0}", oda.NormalOdaFiyati)</td>
+                    <td>@string.Format("{0:C0}", oda.IndirimliOdaFiyati)</td>
+                    <td>@Html.ActionLink("Güncelle", "OdaGuncelle", "OtelPaneli", new { odaid = oda.OdaID }, new { @class = "btn btn-primary" })</td>
+                    <td>@Html.ActionLink("Sil", "OdaSil", "OtelPaneli", new { odaid = oda.OdaID }, new { @class = "btn btn-danger" })</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+

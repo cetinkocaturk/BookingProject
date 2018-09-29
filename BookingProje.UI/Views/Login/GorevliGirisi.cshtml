@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "GorevliGirisi";
+    Layout = "~/Views/_BookingLoginLayout.cshtml";
+}
+
+@Html.Raw(TempData["msg"])
+<br />
+<b style="color:#1f2746; font-family:'Lato' Helvetica, Arial, sans-serif; font-size:25px">Görevli Girişi</b>
+<br /><br />
+<div class="container">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        @using (Html.BeginForm("GorevliGirisi", "Login", FormMethod.Post))
+        {
+            <b>E-Mail:</b><br /><br />
+            <input type="text" name="txtEmail" placeholder="E-Mail" class="form-control" />
+            <br />
+            <b>Şifre:</b><br /><br />
+            <input type="password" name="txtSifre" placeholder="Şifre" class="form-control" />
+            <br />
+            <b>Otel Kodu:</b><br /><br />
+            <input type="text" name="txtOtelKodu" placeholder="Otel Kodu" class="form-control" />
+            <br />
+            <input type="submit" value="Giriş Yap" class="btn btn-primary btn-sm btn-naira btn-naira-up" />
+        }
+        <br /><br />
+        <b>Otelinizin sitemizde yayımlanmasını istiyorsanız &nbsp; &nbsp;</b>@Html.ActionLink("Başvuru Yap", "OtelBasvuru", "Login", null, new { @class = "btn btn-circle", @style = "color:#c62a82" })
+    </div>
+    <div class="col-lg-2"></div>
+</div><br /><br />
+
+

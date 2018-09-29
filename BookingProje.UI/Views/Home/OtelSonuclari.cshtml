@@ -1,0 +1,88 @@
+﻿@model IEnumerable<BookingProje.UI.Models.OtelListesi>
+@{
+    ViewBag.Title = "OtelSonuclari";
+    Layout = "~/Views/_BookingLoginLayout.cshtml";
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Otel Listesi</title>
+    <!-- <meta name="description" content=""> -->
+    <!-- <meta name="keywords" content=""> -->
+    <!-- <meta name="HandheldFriendly" content="True"> -->
+    <!-- <meta name="MobileOptimized" content="320"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <script type="text/javascript" src="~/LayoutHotelList/javascript/head.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/LayoutHotelList/styles/screen.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="~/LayoutHotelList/styles/print.css" media="print">
+    <link rel="shortcut icon" href="~/LayoutHotelList/favicon.ico" type="image/x-icon">
+    <!-------------------------------------------------------------------/
+    Color switcher for demo, to be removed from live website.
+    <!------------------------------------------------------------------->
+    <script type="text/javascript" src="~/LayoutHotelList/jscript_styleswitcher.js"></script>
+    <link rel="stylesheet" href="~/LayoutHotelList/styleswitcher.css" />
+
+    <!-- Skins Color FOR DEMO WEBSITE -->
+    <link rel="alternate stylesheet" href="~/LayoutHotelList/styles-orange/screen.css" title="style-orange" />
+    <link rel="alternate stylesheet" href="~/LayoutHotelList/styles-blue/screen.css" title="style-blue" />
+    <link rel="alternate stylesheet" href="~/LayoutHotelList/styles-pink/screen.css" title="style-pink" />
+    <link rel="alternate stylesheet" href="~/LayoutHotelList/styles-green/screen.css" title="style-green" />
+    <!-- EOF OF DEMO WEBSITE CODE -->
+    <!-------------------------------------------------------------------/
+    EOF Color switcher for demo, to be removed from live website.
+    <!------------------------------------------------------------------->
+
+</head>
+<body>
+    @if (Model == null)
+    {
+        <h3>Aradığınız kritelere uygun otel bulunamadı</h3>
+    }
+    else
+    {
+        <div id="root">
+            <article id="content" class="accordion-b">
+                <div>
+                    <div class="news-a">
+                        @foreach (var oteller in Model)
+                        {
+                            <article>
+                                <header>
+                                    <h2>@Html.ActionLink(oteller.OtelAdi, "OteliIncele", "Home", new { id = oteller.OtelID.ToString() })</h2>
+                                    @{
+                                        var base64 = Convert.ToBase64String(oteller.OtelResmi);
+                                        var imageSrc = string.Format("data:image/gif;base64,{0}", base64);
+                                    }
+                                    <figure><img src='@imageSrc' alt="Placeholder" width="256" height="204"></figure>
+                                    <p>@oteller.OtelSehri / @oteller.OtelIlcesi </p>
+                                </header>
+                                <p>@oteller.OtelAciklamasi</p>
+                                @if (oteller.OtelWifi == true)
+                                {<p>Kablosuz İntenet: Var</p>}
+                                else
+                                { <p>Kablosuz İnternet: Yok</p>}
+                                <p class="scheme-d" style="color:white; margin-top:5%"><span style="color:#ba0e6f">₺</span>@string.Format("{0:0}", oteller.OtelOdaFiyatiIndirim)<span class="a" style="color:#ba0e6f"><span>₺</span>@string.Format("{0:0}", oteller.OtelOdaFiyatiNormal)</span>@Html.ActionLink("İncele", "OteliIncele", "Home", new { @otelid = oteller.OtelID }, new { @class = "" })</p>
+                                <footer style="margin-left:20%; margin-top:12%">
+                                    @if (oteller.OtelYildizi == 5)
+                                    {<p>Otel Yıldızı: &nbsp;<p class="rating-a f"></p></p>}
+                                    @if (oteller.OtelYildizi == 4)
+                                    {<p>Otel Yıldızı: &nbsp;<p class="rating-a e"></p></p>}
+                                    @if (oteller.OtelYildizi == 3)
+                                    {<p>Otel Yıldızı: &nbsp;<p class="rating-a d"></p></p>}
+                                    @if (oteller.OtelYildizi == 2)
+                                    {<p>Otel Yıldızı: &nbsp;<p class="rating-a c"></p></p>}
+                                    @if (oteller.OtelYildizi == 1)
+                                    {<p>Otel Yıldızı: &nbsp;<p class="rating-a b"></p></p>}
+                                </footer>
+                            </article>
+                        }
+                    </div>
+                </div>
+            </article>
+        </div>
+    }
+</body>
+</html>
+

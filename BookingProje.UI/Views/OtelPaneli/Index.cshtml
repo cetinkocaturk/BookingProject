@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BookingProje.UI.Models.OtelIstatistik>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_HotelManagamentLayout.cshtml";
+}
+@foreach (var myOtel in Model)
+{
+    <section class="panel panel-default">
+        <div class="row m-l-none m-r-none bg-light lter">
+            <div class="col-sm-6 col-md-3 padder-v b-r b-light">
+                <span class="fa-stack fa-2x pull-left m-r-sm">
+                    <i class="fa fa-circle fa-stack-2x text-info"></i>
+                    <i class="fa fa-male fa-stack-1x text-white"></i>
+                </span>
+                <a class="clear" href="#">
+                    <span class="h3 block m-t-xs"><strong>@myOtel.MusteriSayisi</strong></span>
+                    <small class="text-muted text-uc">Müşteri Sayısı</small>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3 padder-v b-r b-light lt">
+                <span class="fa-stack fa-2x pull-left m-r-sm">
+                    <i class="fa fa-circle fa-stack-2x text-warning"></i>
+                    <i class="fa fa-bug fa-stack-1x text-white"></i>
+                    <span class="easypiechart pos-abt" data-percent="100" data-line-width="4" data-track-Color="#fff" data-scale-Color="false" data-size="50" data-line-cap='butt' data-animate="2000" data-target="#bugs" data-update="3000"></span>
+                </span>
+                <a class="clear" href="#">
+                    <span class="h3 block m-t-xs"><strong>@myOtel.BosOdaSayisi</strong></span>
+                    <small class="text-muted text-uc">Boş Oda Sayısı</small>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3 padder-v b-r b-light">
+                <span class="fa-stack fa-2x pull-left m-r-sm">
+                    <i class="fa fa-circle fa-stack-2x text-danger"></i>
+                    <i class="fa fa-fire-extinguisher fa-stack-1x text-white"></i>
+                    <span class="easypiechart pos-abt" data-percent="100" data-line-width="4" data-track-Color="#f5f5f5" data-scale-Color="false" data-size="50" data-line-cap='butt' data-animate="3000" data-target="#firers" data-update="5000"></span>
+                </span>
+                <a class="clear" href="#">
+                    <span class="h3 block m-t-xs"><strong>@myOtel.DoluOdaSayisi</strong></span>
+                    <small class="text-muted text-uc">Dolu Oda Sayısı</small>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3 padder-v b-r b-light lt">
+                <span class="fa-stack fa-2x pull-left m-r-sm">
+                    <i class="fa fa-circle fa-stack-2x icon-muted"></i>
+                    <i class="fa fa-clock-o fa-stack-1x text-white"></i>
+                </span>
+                <a class="clear" href="#">
+                    <span class="h3 block m-t-xs"><strong>@myOtel.ToplamOdaSayisi</strong></span>
+                    <small class="text-muted text-uc">Toplam Oda Sayısı</small>
+                </a>
+            </div>
+        </div>
+    </section>
+    <b>@myOtel.GorevliAdi @myOtel.GorevliSoyadi</b>
+    if (1 == 1)
+    {
+        break;
+    }
+}

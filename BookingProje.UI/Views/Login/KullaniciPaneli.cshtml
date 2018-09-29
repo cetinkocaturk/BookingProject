@@ -1,0 +1,34 @@
+﻿@model BookingProje.Data.Tbl_Kullanicilar
+@if (Model == null)
+{
+    <ul class="rd-navbar-nav">
+        <li><a href="~/Home/Index">Ana Sayfa</a></li>
+        <li><a href="~/Login/KullaniciGirisi">Giriş Yap</a></li>
+        <li>
+            <a href="#">Otel Girişi</a>
+            <ul class="rd-navbar-dropdown">
+                <li><a href="~/Login/GorevliGirisi">Görevli Girişi</a></li>
+                <li><a href="~/Login/OtelBasvuru">Otel Başvuru</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Admin Girişi</a></li>
+    </ul>
+}
+else
+{
+    <ul class="rd-navbar-nav">
+        <li><a href="~/Home/Index">Ana Sayfa</a></li>
+        <li>
+            <a href="#">@Model.KullaniciAdi @Model.KullaniciSoyadi</a>
+            <ul class="rd-navbar-dropdown">
+                <li><a href="#">Profilim</a></li>
+                <li><a href="~/Login/CikisYap">Çıkış Yap</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="~/Home/Rezervasyonlarim">Rezervasyonlarım</a>
+        </li>
+        <li><a href="#">Admin Girişi</a></li>
+    </ul>
+}
+

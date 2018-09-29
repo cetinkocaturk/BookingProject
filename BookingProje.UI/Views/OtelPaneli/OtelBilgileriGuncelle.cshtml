@@ -1,0 +1,35 @@
+﻿@model BookingProje.Data.Tbl_Oteller
+@{
+    ViewBag.Title = "OtelBilgileriGuncelle";
+    Layout = "~/Views/_HotelManagamentLayout.cshtml";
+}
+@Html.Raw(TempData["msg"])
+<div class="container">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        @using (Html.BeginForm("OtelBilgileriGuncelle", "OtelPaneli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <b>Otel Adı:</b><br /><br />
+            <input type="text" name="txtOtelAdi" placeholder="Otel Adı" value="@Model.OtelAdi" class="form-control" />
+            <br />
+            <b>Otel Açıklaması:</b><br /><br />
+            <textarea type="text" name="txtAciklama" placeholder="Otel Açıklaması" class="form-control" cols="10" rows="4">@Model.OtelAciklamasi</textarea>
+            <br />
+            <b>Telefon Numarası:</b><br /><br />
+            <input type="text" name="txtTelNo" placeholder="Telefon Numarası" value="@Model.OtelTelefonu" class="form-control" />
+            <br />
+            <b>Otel Yıldızı:</b><br /><br />
+            <input type="number" name="txtOtelYildizi" value="@Model.OtelYildizi" max="5" min="1" class="form-control" />
+            <br />
+            <b>Otel Resmi:</b><br /><br />
+            <input type="file" name="fileOtelResmi" id="fileOtelResmi" class="form-control" />
+            <br />
+            <b>Otel Adresi:</b><br /><br />
+            <textarea type="text" name="txtAdres" placeholder="Otel Açıklaması" class="form-control" cols="10" rows="4">@Model.AcikAdres</textarea>
+            <br />
+            <input type="submit" value="Güncelle" class="btn btn-primary btn-sm btn-naira btn-naira-up" />
+        }
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+

@@ -1,0 +1,424 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2415639B-90E5-48B6-A109-9E4089011835}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookingProje.UI</RootNamespace>
+    <AssemblyName>BookingProje.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="LayoutFeatures2\css\font-awesome.min.css" />
+    <Content Include="LayoutFeatures2\css\style.css" />
+    <Content Include="LayoutFeatures2\fonts\fontawesome-webfont.svg" />
+    <Content Include="LayoutFeatures2\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="LayoutFeatures2\images\favicon.ico" />
+    <Content Include="LayoutFeatures2\images\logo-white.png" />
+    <Content Include="LayoutFeatures2\images\Slider1.png" />
+    <Content Include="LayoutFeatures2\images\Slider2.png" />
+    <Content Include="LayoutFeatures2\js\core.min.js" />
+    <Content Include="LayoutFeatures2\js\script.js" />
+    <Content Include="LayoutFeatures\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="LayoutFeatures\css\bootstrap.min.css" />
+    <Content Include="LayoutFeatures\css\flexslider.css" />
+    <Content Include="LayoutFeatures\css\font-awesome.min.css" />
+    <Content Include="LayoutFeatures\css\fonts\flexslider-icon.svg" />
+    <Content Include="LayoutFeatures\css\templatemo-style.css" />
+    <Content Include="LayoutFeatures\fonts\fontawesome-webfont.svg" />
+    <Content Include="LayoutFeatures\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="LayoutFeatures\img\about-1.jpg" />
+    <Content Include="LayoutFeatures\img\about-2.jpg" />
+    <Content Include="LayoutFeatures\img\about-3.jpg" />
+    <Content Include="LayoutFeatures\img\about-4.jpg" />
+    <Content Include="LayoutFeatures\img\about-5.jpg" />
+    <Content Include="LayoutFeatures\img\about-6.jpg" />
+    <Content Include="LayoutFeatures\img\about-7.jpg" />
+    <Content Include="LayoutFeatures\img\banner-1.jpg" />
+    <Content Include="LayoutFeatures\img\banner-2.jpg" />
+    <Content Include="LayoutFeatures\img\banner-3.jpg" />
+    <Content Include="LayoutFeatures\img\index-01.jpg" />
+    <Content Include="LayoutFeatures\img\index-02.jpg" />
+    <Content Include="LayoutFeatures\img\index-03.jpg" />
+    <Content Include="LayoutFeatures\img\index-04.jpg" />
+    <Content Include="LayoutFeatures\img\index-05.jpg" />
+    <Content Include="LayoutFeatures\img\index-06.jpg" />
+    <Content Include="LayoutFeatures\img\index-07.jpg" />
+    <Content Include="LayoutFeatures\img\index-08.jpg" />
+    <Content Include="LayoutFeatures\img\index-09.jpg" />
+    <Content Include="LayoutFeatures\img\index-10.jpg" />
+    <Content Include="LayoutFeatures\img\rating.png" />
+    <Content Include="LayoutFeatures\img\tours-01.jpg" />
+    <Content Include="LayoutFeatures\img\tours-02.jpg" />
+    <Content Include="LayoutFeatures\img\tours-03.jpg" />
+    <Content Include="LayoutFeatures\img\tours-04.jpg" />
+    <Content Include="LayoutFeatures\img\tours-05.jpg" />
+    <Content Include="LayoutFeatures\img\tours-06.jpg" />
+    <Content Include="LayoutFeatures\img\tours-07.jpg" />
+    <Content Include="LayoutFeatures\img\tours-08.jpg" />
+    <Content Include="LayoutFeatures\img\tours-09.jpg" />
+    <Content Include="LayoutFeatures\img\tours-10.jpg" />
+    <Content Include="LayoutFeatures\img\world-map.png" />
+    <Content Include="LayoutFeatures\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="LayoutFeatures\js\bootstrap.min.js" />
+    <Content Include="LayoutFeatures\js\jquery-1.11.2.min.js" />
+    <Content Include="LayoutFeatures\js\jquery.flexslider-min.js" />
+    <Content Include="LayoutFeatures\js\moment.js" />
+    <Content Include="LayoutFeatures\js\templatemo-script.js" />
+    <Content Include="LayoutFeatures\Yildiz\yildiz1.png" />
+    <Content Include="LayoutFeatures\Yildiz\yildiz2.png" />
+    <Content Include="LayoutFeatures\Yildiz\yildiz3.png" />
+    <Content Include="LayoutFeatures\Yildiz\yildiz4.png" />
+    <Content Include="LayoutFeatures\Yildiz\yildiz5.png" />
+    <Content Include="LayoutHotelList\images\693x283.gif" />
+    <Content Include="LayoutHotelList\images\pink\sprite-a.png" />
+    <Content Include="LayoutHotelList\images\pink\stars-a.png" />
+    <Content Include="LayoutHotelList\javascript\head.js" />
+    <Content Include="LayoutHotelList\javascript\jquery-ui.min.js" />
+    <Content Include="LayoutHotelList\javascript\jquery.min.js" />
+    <Content Include="LayoutHotelList\javascript\jscript_styleswitcher.js" />
+    <Content Include="LayoutHotelList\styles-blue\screen.css" />
+    <Content Include="LayoutHotelList\styles-green\screen.css" />
+    <Content Include="LayoutHotelList\styles-orange\screen.css" />
+    <Content Include="LayoutHotelList\styles-pink\screen.css" />
+    <Content Include="LayoutHotelList\styles\print.css" />
+    <Content Include="LayoutHotelList\styles\screen.css" />
+    <Content Include="LayoutHotelList\styles\styleswitcher.css" />
+    <Content Include="LayoutHotelPanel\css\animate.css" />
+    <Content Include="LayoutHotelPanel\css\app.css" />
+    <Content Include="LayoutHotelPanel\css\bootstrap.css" />
+    <Content Include="LayoutHotelPanel\css\font-awesome.min.css" />
+    <Content Include="LayoutHotelPanel\css\font.css" />
+    <Content Include="LayoutHotelPanel\css\landing.css" />
+    <Content Include="LayoutHotelPanel\fonts\fontawesome-webfont.svg" />
+    <Content Include="LayoutHotelPanel\images\avatar.jpg" />
+    <Content Include="LayoutHotelPanel\images\logo.png" />
+    <Content Include="LayoutHotelPanel\js\app.js" />
+    <Content Include="LayoutHotelPanel\js\app.plugin.js" />
+    <Content Include="LayoutHotelPanel\js\appear\jquery.appear.js" />
+    <Content Include="LayoutHotelPanel\js\apps\notes.js" />
+    <Content Include="LayoutHotelPanel\js\bootstrap.js" />
+    <Content Include="LayoutHotelPanel\js\calendar\bootstrap_calendar.css" />
+    <Content Include="LayoutHotelPanel\js\calendar\bootstrap_calendar.js" />
+    <Content Include="LayoutHotelPanel\js\calendar\demo.js" />
+    <Content Include="LayoutHotelPanel\js\charts\easypiechart\jquery.easy-pie-chart.js" />
+    <Content Include="LayoutHotelPanel\js\charts\flot\demo.js" />
+    <Content Include="LayoutHotelPanel\js\charts\flot\jquery.flot.grow.js" />
+    <Content Include="LayoutHotelPanel\js\charts\flot\jquery.flot.min.js" />
+    <Content Include="LayoutHotelPanel\js\charts\flot\jquery.flot.orderBars.js" />
+    <Content Include="LayoutHotelPanel\js\charts\flot\jquery.flot.pie.min.js" />
+    <Content Include="LayoutHotelPanel\js\charts\flot\jquery.flot.resize.js" />
+    <Content Include="LayoutHotelPanel\js\charts\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="LayoutHotelPanel\js\charts\sparkline\jquery.sparkline.min.js" />
+    <Content Include="LayoutHotelPanel\js\combodate\combodate.js" />
+    <Content Include="LayoutHotelPanel\js\datatables\datatables.css" />
+    <Content Include="LayoutHotelPanel\js\datatables\jquery.dataTables.min.js" />
+    <Content Include="LayoutHotelPanel\js\datepicker\bootstrap-datepicker.js" />
+    <Content Include="LayoutHotelPanel\js\datepicker\datepicker.css" />
+    <Content Include="LayoutHotelPanel\js\file-input\bootstrap-filestyle.min.js" />
+    <Content Include="LayoutHotelPanel\js\file-input\bootstrap.file-input.js" />
+    <Content Include="LayoutHotelPanel\js\fuelux\demo.datagrid.js" />
+    <Content Include="LayoutHotelPanel\js\fuelux\fuelux.css" />
+    <Content Include="LayoutHotelPanel\js\fuelux\fuelux.js" />
+    <Content Include="LayoutHotelPanel\js\fullcalendar\demo.js" />
+    <Content Include="LayoutHotelPanel\js\fullcalendar\fullcalendar.css" />
+    <Content Include="LayoutHotelPanel\js\fullcalendar\fullcalendar.min.js" />
+    <Content Include="LayoutHotelPanel\js\fullcalendar\theme.css" />
+    <Content Include="LayoutHotelPanel\js\grid\gallery.css" />
+    <Content Include="LayoutHotelPanel\js\grid\gallery.js" />
+    <Content Include="LayoutHotelPanel\js\grid\jquery.grid-a-licious.min.js" />
+    <Content Include="LayoutHotelPanel\js\grid\masonry.pkgd.min.js" />
+    <Content Include="LayoutHotelPanel\js\ie\excanvas.js" />
+    <Content Include="LayoutHotelPanel\js\ie\html5shiv.js" />
+    <Content Include="LayoutHotelPanel\js\ie\respond.min.js" />
+    <Content Include="LayoutHotelPanel\js\intro\demo.js" />
+    <Content Include="LayoutHotelPanel\js\intro\intro.min.js" />
+    <Content Include="LayoutHotelPanel\js\intro\introjs.css" />
+    <Content Include="LayoutHotelPanel\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="LayoutHotelPanel\js\jquery.min.js" />
+    <Content Include="LayoutHotelPanel\js\jquery.ui.touch-punch.min.js" />
+    <Content Include="LayoutHotelPanel\js\jvectormap\demo.js" />
+    <Content Include="LayoutHotelPanel\js\jvectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="LayoutHotelPanel\js\jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="LayoutHotelPanel\js\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="LayoutHotelPanel\js\landing.js" />
+    <Content Include="LayoutHotelPanel\js\libs\backbone-min.js" />
+    <Content Include="LayoutHotelPanel\js\libs\backbone.localStorage-min.js" />
+    <Content Include="LayoutHotelPanel\js\libs\jquery.pjax.js" />
+    <Content Include="LayoutHotelPanel\js\libs\jquery.transit.js" />
+    <Content Include="LayoutHotelPanel\js\libs\moment.min.js" />
+    <Content Include="LayoutHotelPanel\js\libs\underscore-min.js" />
+    <Content Include="LayoutHotelPanel\js\maps\demo.js" />
+    <Content Include="LayoutHotelPanel\js\maps\gmaps.js" />
+    <Content Include="LayoutHotelPanel\js\markdown\bartik.css" />
+    <Content Include="LayoutHotelPanel\js\markdown\demo.js" />
+    <Content Include="LayoutHotelPanel\js\markdown\epic-light.css" />
+    <Content Include="LayoutHotelPanel\js\markdown\epiceditor.css" />
+    <Content Include="LayoutHotelPanel\js\markdown\epiceditor.min.js" />
+    <Content Include="LayoutHotelPanel\js\nestable\demo.js" />
+    <Content Include="LayoutHotelPanel\js\nestable\jquery.nestable.js" />
+    <Content Include="LayoutHotelPanel\js\nestable\nestable.css" />
+    <Content Include="LayoutHotelPanel\js\parsley\parsley.extend.js" />
+    <Content Include="LayoutHotelPanel\js\parsley\parsley.min.js" />
+    <Content Include="LayoutHotelPanel\js\prettyphoto\default\default_thumb.png" />
+    <Content Include="LayoutHotelPanel\js\prettyphoto\default\loader.gif" />
+    <Content Include="LayoutHotelPanel\js\prettyphoto\default\sprite.png" />
+    <Content Include="LayoutHotelPanel\js\prettyphoto\default\sprite_next.png" />
+    <Content Include="LayoutHotelPanel\js\prettyphoto\default\sprite_prev.png" />
+    <Content Include="LayoutHotelPanel\js\prettyphoto\default\sprite_x.png" />
+    <Content Include="LayoutHotelPanel\js\prettyphoto\default\sprite_y.png" />
+    <Content Include="LayoutHotelPanel\js\prettyphoto\jquery.prettyPhoto.js" />
+    <Content Include="LayoutHotelPanel\js\prettyphoto\prettyPhoto.css" />
+    <Content Include="LayoutHotelPanel\js\scroll\smoothscroll.js" />
+    <Content Include="LayoutHotelPanel\js\select2\select2.css" />
+    <Content Include="LayoutHotelPanel\js\select2\select2.min.js" />
+    <Content Include="LayoutHotelPanel\js\select2\theme.css" />
+    <Content Include="LayoutHotelPanel\js\slider\bootstrap-slider.js" />
+    <Content Include="LayoutHotelPanel\js\slider\slider.css" />
+    <Content Include="LayoutHotelPanel\js\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="LayoutHotelPanel\js\sortable\jquery.sortable.js" />
+    <Content Include="LayoutHotelPanel\js\wysiwyg\bootstrap-wysiwyg.js" />
+    <Content Include="LayoutHotelPanel\js\wysiwyg\demo.js" />
+    <Content Include="LayoutHotelPanel\js\wysiwyg\jquery.hotkeys.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OtelPaneliController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OtelAramaSonuclari.cs" />
+    <Compile Include="Models\OtelInceleme.cs" />
+    <Compile Include="Models\OtelIstatistik.cs" />
+    <Compile Include="Models\OtelListesi.cs" />
+    <Compile Include="Models\RezervasyonBilgileri.cs" />
+    <Compile Include="Models\YorumVePuan.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="LayoutFeatures\css\fonts\flexslider-icon.eot" />
+    <Content Include="LayoutFeatures\css\fonts\flexslider-icon.ttf" />
+    <Content Include="LayoutFeatures\css\fonts\flexslider-icon.woff" />
+    <Content Include="LayoutFeatures\fonts\fontawesome-webfont.eot" />
+    <Content Include="LayoutFeatures\fonts\fontawesome-webfont.ttf" />
+    <Content Include="LayoutFeatures\fonts\fontawesome-webfont.woff" />
+    <Content Include="LayoutFeatures\fonts\fontawesome-webfont.woff2" />
+    <Content Include="LayoutFeatures\fonts\FontAwesome.otf" />
+    <Content Include="LayoutFeatures\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="LayoutFeatures\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="LayoutFeatures\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="LayoutFeatures\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="LayoutHotelPanel\fonts\fontawesome-webfont.eot" />
+    <Content Include="LayoutHotelPanel\fonts\fontawesome-webfont.ttf" />
+    <Content Include="LayoutHotelPanel\fonts\fontawesome-webfont.woff" />
+    <Content Include="LayoutHotelPanel\fonts\FontAwesome.otf" />
+    <Content Include="LayoutHotelPanel\fonts\opensans\opensans-bold-webfont.woff" />
+    <Content Include="LayoutHotelPanel\fonts\opensans\opensans-light-webfont.woff" />
+    <Content Include="LayoutHotelPanel\fonts\opensans\opensans-webfont.woff" />
+    <Content Include="LayoutHotelPanel\js\data\datagrid.json" />
+    <Content Include="LayoutHotelPanel\js\data\datatable.json" />
+    <Content Include="LayoutHotelPanel\js\slider\slider.less" />
+    <Content Include="LayoutHotelList\styles\fonts\LithosPro-Black.otf" />
+    <Content Include="LayoutHotelList\styles\fonts\lithospro-black.ttf" />
+    <Content Include="LayoutHotelList\styles\fonts\lithospro-black.woff" />
+    <Content Include="LayoutHotelList\styles\fonts\LithosPro-ExtraLight.otf" />
+    <Content Include="LayoutHotelList\styles\fonts\lithospro-regular.ttf" />
+    <Content Include="LayoutHotelList\styles\fonts\lithospro-regular.woff" />
+    <Content Include="LayoutHotelList\styles\fonts\raleway-regular.ttf" />
+    <Content Include="LayoutHotelList\styles\fonts\raleway-regular.woff" />
+    <Content Include="LayoutFeatures2\fonts\fontawesome-webfont.eot" />
+    <Content Include="LayoutFeatures2\fonts\fontawesome-webfont.ttf" />
+    <Content Include="LayoutFeatures2\fonts\fontawesome-webfont.woff" />
+    <Content Include="LayoutFeatures2\fonts\fontawesome-webfont.woff2" />
+    <Content Include="LayoutFeatures2\fonts\FontAwesome.otf" />
+    <Content Include="LayoutFeatures2\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="LayoutFeatures2\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="LayoutFeatures2\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="LayoutFeatures2\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="LayoutFeatures\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="LayoutFeatures\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="LayoutFeatures\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="LayoutFeatures2\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="LayoutFeatures2\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="LayoutFeatures2\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="LayoutHotelList\styles\fonts\raleway-bold.ttf" />
+    <Content Include="LayoutHotelList\styles\fonts\raleway-bold.woff" />
+    <None Include="packages.config" />
+    <Content Include="Views\_BookingLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\SelectOtel.cshtml" />
+    <Content Include="Views\_BookingLoginLayout.cshtml" />
+    <Content Include="Views\Login\KullaniciGirisi.cshtml" />
+    <Content Include="Views\Login\KullaniciKayit.cshtml" />
+    <Content Include="Views\Login\GorevliGirisi.cshtml" />
+    <Content Include="Views\Login\OtelBasvuru.cshtml" />
+    <Content Include="Views\Login\KullaniciPaneli.cshtml" />
+    <Content Include="Views\_HotelManagamentLayout.cshtml" />
+    <Content Include="Views\OtelPaneli\Index.cshtml" />
+    <Content Include="Views\OtelPaneli\GorevliBilgileri.cshtml" />
+    <Content Include="Views\Home\OtelSonuclari.cshtml" />
+    <Content Include="Views\Home\OteliIncele.cshtml" />
+    <Content Include="Views\OtelPaneli\OtelBilgileri.cshtml" />
+    <Content Include="Views\OtelPaneli\OtelBilgileriGuncelle.cshtml" />
+    <Content Include="Views\OtelPaneli\OtelOdalari.cshtml" />
+    <Content Include="Views\OtelPaneli\OdaGuncelle.cshtml" />
+    <Content Include="Views\OtelPaneli\OdaEkle.cshtml" />
+    <Content Include="Views\OtelPaneli\OtelYorumlari.cshtml" />
+    <Content Include="Views\Home\Rezervasyonlarim.cshtml" />
+    <Content Include="Views\OtelPaneli\AdmineMailGonderme.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookingProje.Business\BookingProje.Business.csproj">
+      <Project>{996ecc02-6cb8-405a-a7a2-8cc7ff886afb}</Project>
+      <Name>BookingProje.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookingProje.Data\BookingProje.Data.csproj">
+      <Project>{6a69bf04-cf66-4ba0-bd98-c051ba9ac1b9}</Project>
+      <Name>BookingProje.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52881</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52881/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

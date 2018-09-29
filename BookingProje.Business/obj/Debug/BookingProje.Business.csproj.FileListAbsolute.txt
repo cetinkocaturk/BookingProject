@@ -1,0 +1,12 @@
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\bin\Debug\BookingProje.Business.dll
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\bin\Debug\BookingProje.Business.pdb
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\obj\Debug\BookingProje.Business.csproj.CoreCompileInputs.cache
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\obj\Debug\BookingProje.Business.dll
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\obj\Debug\BookingProje.Business.pdb
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\bin\Debug\BookingProje.Data.dll
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\bin\Debug\BookingProje.Data.pdb
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\bin\Debug\BookingProje.Data.dll.config
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\bin\Debug\EntityFramework.xml
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\obj\Debug\BookingProje.Business.csproj.CopyComplete
+C:\Users\alpay\source\repos\BookingProje\BookingProje.Business\obj\Debug\BookingProje.Business.csprojAssemblyReference.cache

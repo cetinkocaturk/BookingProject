@@ -1,0 +1,98 @@
+﻿
+<div data-type="horizontal" class="responsive-tabs text-md-left nav-custom-dark view-animate fadeInUpSmall">
+    <!-- Responsive-tabs-->
+    <ul class="nav-custom-tabs resp-tabs-list">
+        <li class="nav-item"><span class="fa-hotel"></span><span>&nbsp;Otel</span></li>
+    </ul>
+    <div class="resp-tabs-container nav-custom-tab nav-custom-wide">
+        <div>
+            @using (Html.BeginForm("OtelSonuclari", "Home", FormMethod.Post, new { @class = "small" }))
+            {
+                <div class="range">
+                    <div class="range offset-top-15">
+                        <div class="cell-xs-3">
+                            <div class="form-group">
+                                <label class="form-group-label">Şehir Seç:</label>
+                                @Html.DropDownList("ddlSehirler", ViewBag.Sehirler as SelectList, "..::İl Seçiniz::..", new { @class = "form-control select-filter" })
+                            </div>
+                        </div>
+                        <div class="cell-xs-3">
+                            <div class="form-group">
+                                <label class="form-group-label">İlçe Seç:</label>
+                                @Html.DropDownList("ddlIlceler", new SelectList(string.Empty, "IlceID", "IlceAdi"), "..::İlçe Seçiniz::..", new { @class = "form-control select-filter" })
+                            </div>
+                        </div>
+                        @*<div class="cell-xs offset-top-15 offset-xs-top-0">
+                            <div class="form-group">
+                                <label class="form-group-label">Oda Sayısı:</label>
+                                <input type="number" name="numbOdaSayisi" min="1" value="1" required class="form-control stepper-input">
+                            </div>*@
+                        <div class="cell-md-1-5 offset-top-10 offset-md-top-0">
+                            <div class="form-group">
+                                <label class="form-group-label">Kaç Yıldızlı Otel:</label>
+                                @Html.DropDownList("ddlYildizlar", new SelectList(new[] { new { ID = "1", Name = "1" }, new { ID = "2", Name = "2" }, new { ID = "3", Name = "3" }, new { ID = "4", Name = "4" }, new { ID = "5", Name = "5" } }, "ID", "Name", "..::Otel Sınıfı Seçiniz::.."), new { @class = "form-control select-filter" })
+                            </div>
+                        </div>
+                        <div class="cell-xs-3">
+                            <div class="form-group">
+                                <label class="form-group-label">Oda Sınıfı:</label>
+                                @Html.DropDownList("ddlOdaTurleri", ViewBag.OdaTurleri as SelectList, "..::Oda Sınıfı Seçiniz::..", new { @class = "form-control select-filter" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="range offset-top-15">
+                    <div class="cell-xs">
+                        <div class="form-group">
+                            <label class="form-group-label">Giriş Tarihi:</label>
+                            <input type="text" data-time-picker="date" data-constraints="Tarih Seçiniz" required name="txtGirisTarihi" class="form-control">
+                        </div>
+                    </div>
+                    <div class="cell-xs offset-top-15 offset-xs-top-0">
+                        <div class="form-group">
+                            <label class="form-group-label">Çıkış Tarihi:</label>
+                            <input type="text" data-time-picker="date" data-constraints="Tarih Seçiniz" required name="txtCikisTarihi" class="form-control">
+                        </div>
+                    </div>
+                    <div class="cell-sm-6 cell-lg-4 offset-top-15 offset-sm-top-0">
+                        <div class="cell-xs">
+                            <div class="cell-xs-6">
+                                <div class="form-group">
+                                    <label class="form-group-label">Kişi Sayısı:</label>
+                                    <input type="number" name="numbKisiSayisi" min="1" value="1" required class="form-control stepper-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell-lg-clear-flex cell-sm-bottom cell-lg text-center text-lg-right offset-top-15 offset-lg-top-0">
+                        <input type="submit" class="btn btn-primary btn-sm btn-naira btn-naira-up" value="Otel Ara">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+</div>
+<script src="~/LayoutFeatures/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ddlSehirler").change(function () {
+            //alert("Değişti");
+            $("#ddlIlceler").empty();
+            $.ajax({
+                url:'@Url.Action("IlceGetir", "Home")',
+                data: { id: $("#ddlSehirler").val() },
+                type: 'Post',
+                dataType: 'json',
+                success: function (counties) {
+                    //alert("Test");
+                    $.each(counties, function (i, counties) {
+                        //alert("Test");
+                        $("#ddlIlceler").append('<option value="' + counties.Value + '">' + counties.Text + '</option>');
+                    });
+                }
+            });
+
+        });
+    });
+</script>
